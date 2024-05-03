@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link ,useOutletcontext} from "react-router-dom";
 
 function UserCard({user}) {
+  const user=useOutletcontext();
     return (
       <article>
           <h2>{user.name}</h2>

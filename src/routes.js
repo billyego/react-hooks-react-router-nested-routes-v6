@@ -4,27 +4,35 @@ import Login from "./pages/Login";
 import UserProfile from "./pages/UserProfile";
 import ErrorPage from "./pages/ErrorPage";
 
+import App from "./App";
+
 const routes = [
-  {
-    path: "/",
+  {path:"/",
+  element:<App />,
+  errorElement:<ErrorPage/>,
+  Children:
+  [ {
+  path: "/",
     element: <Home />,
-    errorElement: <ErrorPage />
+    children:[
+      {
+        path:"/profile/:id",
+        element:<UserProfile/>
+      }
+    ]
   }, 
   {
     path: "/about",
     element: <About />,
-    errorElement: <ErrorPage />
   },
   {
     path: "/login",
     element: <Login />,
-    errorElement: <ErrorPage />
   },
   {
     path: "/profile/:id",
     element: <UserProfile />,
-    errorElement: <ErrorPage />
-  }
-];
+  }]
+}];
 
 export default routes;
